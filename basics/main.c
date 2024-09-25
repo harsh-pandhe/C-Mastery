@@ -2,17 +2,18 @@
 #define SIZE 10
 int main()
 {
-    int i = 10;
-    int *ip;
-    ip = &i;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *ptr;
+    ptr = arr;
 
-    printf("Value of i: %d\n", i);
-    printf("Address of i: %p\n", &i);
+    printf("a[0] = %d\n", *ptr);
+    printf("a[1] = %d\n", *++ptr);
+    printf("a[2] = %d\n", *++ptr);
+    printf("a[3] = %d\n", *(ptr + 1));
 
-    printf("Value of ip: %p\n", ip);
-    printf("Address of ip: %p\n", &ip);
+    ptr = &arr[2];
+    *ptr = 100;
+    printf("a[2] = %d\n", *ptr);
 
-    printf("Value of *ip: %d\n", *ip);
-    
     return 0;
 }

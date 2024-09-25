@@ -1,13 +1,14 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 int main()
 {
-    int a, b;
-    cout << "Enter two Numbers: " << endl;
-    cin >> a >> b;
+    double x;
+    cout << "Enter a Number: " << endl;
+    cin >> x;
 
-    cout << "Addition of " << a << " and " << b << " : " << a + b;
+    double sqrt_x = sqrt(x);
+    cout << "Sq. Root of " << x << " is: " << sqrt_x;
     return 0;
 }

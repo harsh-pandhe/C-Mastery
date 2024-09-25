@@ -1,20 +1,28 @@
 #include <stdio.h>
-#define SIZE 10
+
+int funct(int a, int b)
+{
+    return a + b;
+}
+
+unsigned int factorial(unsigned int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * factorial(n - 1);
+    }
+}
+
 int main()
 {
-    struct Complex
-    {
-        double real;
-        double imag;
-    } c = {0.0, 1.0};
+    int c = funct(5, 6);
+    printf("%d\n", c);
 
-    printf("Size of Complex: %d\n", sizeof(c));
-    printf("Real: %f, Imag: %f\n", c.real, c.imag);
-    struct Complex *p = &c;
-    (*p).real = 1.0;
-    p->imag = 2.0;
-
-    printf("Real: %f, Imag: %f\n", c.real, c.imag);
-
+    unsigned int n = 5;
+    printf("Factorial of %d is %d\n", n, factorial(n));
     return 0;
 }

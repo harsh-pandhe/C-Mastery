@@ -4,15 +4,17 @@ using namespace std;
 
 int main()
 {
-    int i, sum = 0;
-    cout << "Enter a Number: " << endl;
-    cin >> i;
+    short age[4];
 
-    for (int j = 0; j <= i; j++)
-    {
-        sum = j + sum;
-    }
+    age[0] = 23;
+    age[1] = 78;
+    age[2] = 42;
+    age[3] = 91;
 
-    cout << "Sum of Natural Numbers: " << sum << endl;
+    cout << age[0] << " ";
+    cout << age[1] << " ";
+    cout << age[2] << " ";
+    cout << age[3] << " ";
+
     return 0;
 }

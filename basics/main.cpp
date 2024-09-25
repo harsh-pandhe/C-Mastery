@@ -1,20 +1,22 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
-
+#define MAX 100
 int main()
 {
-    short age[4];
+    vector<int> arr(MAX);
 
-    age[0] = 23;
-    age[1] = 78;
-    age[2] = 42;
-    age[3] = 91;
+    cout << "Enter the no of Elements: ";
+    int count, sum = 0;
+    cin >> count;
 
-    cout << age[0] << " ";
-    cout << age[1] << " ";
-    cout << age[2] << " ";
-    cout << age[3] << " ";
+    for (int i = 0; i < count; i++)
+    {
+        arr[i] = i;
+        sum += arr[i];
+    }
+    cout << "Array Sum: " << sum << endl;
 
     return 0;
 }

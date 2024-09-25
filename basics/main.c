@@ -2,43 +2,25 @@
 #define SIZE 10
 int main()
 {
-    int arr[SIZE];
-    for (int i = 0; i < SIZE; i++)
-    {
-        arr[i] = i;
-    }
+    struct Complex {
+        double re;
+        double im;
+    } c;
 
-    for (int i = 0; i < SIZE; i++)
-    {
-        printf("%d\n", arr[i]);
-    }
+    printf("%d\n", sizeof(struct Complex)); // 16
 
-    int a[] = {1, 2, 3, 4, 5};
-    printf("%d\n", a[0]);
+    struct _Books {
+        char title[50];
+        char author[50];
+        int books_id;
+    } Books;
 
-    int b[5] = {1, 2, 3, 4, 5};
-    printf("%d\n", b[0]);
+    printf("%d\n", sizeof(struct _Books)); // 104
 
-    b[5] = 6;
-    printf("%d\n", b[5]);
+    struct Complex x = {1.0, 2.0};
+    struct Complex y = {3.0};
 
-    int z[3][4];
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            z[i][j] = i + j;
-        }
-    }
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            printf("%d ", z[i][j]);
-        }
-        printf("\n");
-    }
+    printf("%f %f \n", x.re, x.im);
+    printf("%f %f \n", y.re, y.im);
     return 0;
 }

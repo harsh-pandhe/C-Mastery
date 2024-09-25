@@ -2,25 +2,31 @@
 #define SIZE 10
 int main()
 {
-    struct Complex {
-        double re;
-        double im;
-    } c;
+    typedef union _Packet
+    {
+        int iData;
+        double dData;
+        char cData;
+    } Packet;
 
-    printf("%d\n", sizeof(struct Complex)); // 16
+    printf("Size of Packet: %d\n", sizeof(Packet));
 
-    struct _Books {
-        char title[50];
-        char author[50];
-        int books_id;
-    } Books;
+    Packet p = {10};
+    printf("p.iData: %d\n", p.iData);
 
-    printf("%d\n", sizeof(struct _Books)); // 104
+    p.iData = 20;
+    printf("iData:  %d\n", p.iData);
 
-    struct Complex x = {1.0, 2.0};
-    struct Complex y = {3.0};
+    p.dData = 30.0;
+    printf("dData:  %lf\n", p.dData);
 
-    printf("%f %f \n", x.re, x.im);
-    printf("%f %f \n", y.re, y.im);
+    p.cData = 'A';
+    printf("cData:  %c\n", p.cData);
+
+    p.iData = 40;
+    printf("iData:  %d\n", p.iData);
+    printf("dData:  %lf\n", p.dData);
+    printf("cData:  %c\n", p.cData);
+
     return 0;
 }

@@ -2,18 +2,19 @@
 #define SIZE 10
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int *ptr;
-    ptr = arr;
+    struct Complex
+    {
+        double real;
+        double imag;
+    } c = {0.0, 1.0};
 
-    printf("a[0] = %d\n", *ptr);
-    printf("a[1] = %d\n", *++ptr);
-    printf("a[2] = %d\n", *++ptr);
-    printf("a[3] = %d\n", *(ptr + 1));
+    printf("Size of Complex: %d\n", sizeof(c));
+    printf("Real: %f, Imag: %f\n", c.real, c.imag);
+    struct Complex *p = &c;
+    (*p).real = 1.0;
+    p->imag = 2.0;
 
-    ptr = &arr[2];
-    *ptr = 100;
-    printf("a[2] = %d\n", *ptr);
+    printf("Real: %f, Imag: %f\n", c.real, c.imag);
 
     return 0;
 }

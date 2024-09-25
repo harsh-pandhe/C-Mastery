@@ -3,12 +3,15 @@
 
 int main()
 {
-    double x;
+    int i, sum = 0;
+    printf("Enter a Number: ");
+    scanf("%d", &i);
 
-    printf("Enter a number: ");
-    scanf("%lf", &x);
+    for (int j = 0; j <= i; j++)
+    {
+        sum = sum + j;
+    }
 
-    double sqrt_x = sqrt(x);
-    printf("Square Root of %.2lf is: %.2lf", x, sqrt_x);
+    printf("Sum of all Natural Numbers: %d", sum);
     return 0;
 }

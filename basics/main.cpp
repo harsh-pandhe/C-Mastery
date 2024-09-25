@@ -4,11 +4,15 @@ using namespace std;
 
 int main()
 {
-    double x;
+    int i, sum = 0;
     cout << "Enter a Number: " << endl;
-    cin >> x;
+    cin >> i;
 
-    double sqrt_x = sqrt(x);
-    cout << "Sq. Root of " << x << " is: " << sqrt_x;
+    for (int j = 0; j <= i; j++)
+    {
+        sum = j + sum;
+    }
+
+    cout << "Sum of Natural Numbers: " << sum << endl;
     return 0;
 }

@@ -2,31 +2,17 @@
 #define SIZE 10
 int main()
 {
-    typedef union _Packet
-    {
-        int iData;
-        double dData;
-        char cData;
-    } Packet;
+    int i = 10;
+    int *ip;
+    ip = &i;
 
-    printf("Size of Packet: %d\n", sizeof(Packet));
+    printf("Value of i: %d\n", i);
+    printf("Address of i: %p\n", &i);
 
-    Packet p = {10};
-    printf("p.iData: %d\n", p.iData);
+    printf("Value of ip: %p\n", ip);
+    printf("Address of ip: %p\n", &ip);
 
-    p.iData = 20;
-    printf("iData:  %d\n", p.iData);
-
-    p.dData = 30.0;
-    printf("dData:  %lf\n", p.dData);
-
-    p.cData = 'A';
-    printf("cData:  %c\n", p.cData);
-
-    p.iData = 40;
-    printf("iData:  %d\n", p.iData);
-    printf("dData:  %lf\n", p.dData);
-    printf("cData:  %c\n", p.cData);
-
+    printf("Value of *ip: %d\n", *ip);
+    
     return 0;
 }

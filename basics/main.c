@@ -1,54 +1,53 @@
 #include <stdio.h>
-#include <math.h>
+#include <limits.h>
+#include <stdlib.h>
 
-typedef struct stack
+struct Stack
 {
-    char data[100];
     int top;
-} stack;
+    unsigned capacity;
+    int *array;
+};
 
-int empty(stack *p)
+struct Stack *createStack(unsigned capacity)
 {
-    return (p->top == -1);
+    struct Stack *stack = (struct Stack *)malloc(sizeof(struct Stack));
+    stack->capacity = capacity;
+    stack->top = -1;
+    stack->array = (int *)malloc(stack->capacity * sizeof(int));
+    return stack;
 }
 
-int top(stack *p)
+int isFull(struct Stack *stack)
 {
-    return p->data[p->top];
+    return stack->top == stack->capacity - 1;
 }
 
-void push(stack *p, char x)
+int isEmpty(struct Stack *stack)
 {
-    p->data[++(p->top)] = x;
+    return stack->top == -1;
 }
 
-void pop(stack *p)
+void push(struct Stack *stack, int item)
 {
-    if (!empty(p))
+    if (isFull(stack))
+        return;
+    stack->array[++stack->top] = item;
+    printf("%d pushed to stack\n", item);
+}
+
+int pop(struct Stack *stack)
+{
+    if (isEmpty(stack))
     {
-        (p->top) = (p->top) - 1;
+        return INT_MIN;
     }
+    return stack->array[stack->top--];
 }
 
 int main()
 {
-    stack s;
-    s.top = -1;
+    struct Stack *stack = createStack(100);
 
-    char ch, str[10] = "ABCDE";
-    int i, len = sizeof(str);
-
-    for (i = 0; i < len; i++)
-    {
-        push(&s, str[i]);
-    }
-
-    printf("Reversed String: ");
-
-    while (!empty(&s))
-    {
-        printf("%c", top(&s));
-        pop(&s);
-    }
-    return 0;
+    printf("%d popped from stack\n", pop(stack));
 }
